@@ -6,20 +6,20 @@ import "@thirdweb-dev/contracts/base/ERC1155LazyMint.sol";
 contract sample is ERC1155LazyMint {
     constructor(
         string memory _name,
-        string memory _symbol,
+        string memory _symbol
     ) ERC1155LazyMint(_name, _symbol, msg.sender, 0) {}
 
     function verifyClaim(
         address _claimer,
         uint256 _tokenId,
-        uint256 _quantity,
+        uint256 _quantity
     ) public view override {
         require (_tokenId == 0, "Only sushi are claimed!");
         require (_quantity == 1, "Only one sushi can be claimed!");
     }
 
-    function evolve(){
-    _burn(msg.sender, 0, 2)
-    _mint(msg.sender, 1, 1,"")
+    function evolve() public{
+            _burn(msg.sender, 0, 1);
+            _mint(msg.sender, 1, 1,"");
     }
 }
