@@ -1,5 +1,5 @@
 # 基本イメージとして、Node.js がインストールされたイメージを選択
-FROM node:16
+FROM node:latest
 
 SHELL ["/bin/bash", "-c"]
 ENV PATH="~/.foundry/bin:${PATH}"
